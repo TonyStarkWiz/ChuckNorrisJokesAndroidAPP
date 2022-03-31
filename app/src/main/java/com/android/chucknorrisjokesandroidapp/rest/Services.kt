@@ -7,11 +7,10 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-
 interface Services {
-    @GET(pathOfAPI)
+    @GET("$pathOfAPI{number}")
     suspend fun getJokes(
-        @Path("pathOfAPI") jokesID : String,
+        @Path("number") number : Int = 100,
         @Query("firstName") firstName: String,
         @Query("lastName") lastName: String
     ): Response<JokesResponse>
@@ -19,7 +18,7 @@ interface Services {
     companion object {
         //http://api.icndb.com/jokes/random?firstName=Chuck&lastName=Norris
         const val baseURL = "http://api.icndb.com/jokes/"
-        private const val pathOfAPI = "random"
+        private const val pathOfAPI = "random/"
 
     }
 }
