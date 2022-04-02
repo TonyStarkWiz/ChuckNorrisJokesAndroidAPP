@@ -7,7 +7,7 @@ interface JokesRepository {
     suspend fun getJokes(number: Int, firstName: String, lastName: String): Response<JokesResponse>
 }
 
-class MovieRepositoryImpl (
+class JokeRepositoryImpl (
     private val jokesServices: Services
 ) : JokesRepository {
 
